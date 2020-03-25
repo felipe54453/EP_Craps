@@ -23,13 +23,14 @@ while running:
            
             if soma == 7 or soma==11:
                 mao=mao+ aposta +10
-                game = False 
+                break
 
             if soma == 2 or soma==3 or soma==12: #craps
                 mao=mao-aposta
                 game = False 
 
             else: #Point
+                print('oi')
                 game=False
 
     if jogador == 'sair':
