@@ -12,15 +12,15 @@ def dados():
     return dado_1,dado_2
 
 while running:
-    jogador = input("O que voce deseja fazer? apostar/sair: ")
+    jogador = input("O que voce deseja fazer? pass/field/any/twelve/sair: ")
       
-    if jogador == 'apostar':
-        #aposta = float(input('Qual o valor da aposta?: '))
+    if jogador == 'pass':
+        aposta = float(input('Qual o valor da aposta?: '))
         game=True
         while game:
             dado1,dado2 = dados()
             soma=dado1+dado2
-            print('Dados tirados: ',dado1,dado2,'|','Soma: ',soma)
+            print('Dados tirados: ',dado1,'e',dado2,'|','Soma: ',soma)
 
             if soma == 7 or soma==11:
                 mao=mao+ aposta +10
@@ -44,7 +44,7 @@ while running:
                 while point:
                     dado_point1,dado_point2=dados()
                     soma_point=dado_point1+dado_point2
-                    print('Dados tirados: ',dado_point1,dado_point2,'|','Soma: ',soma_point)
+                    print('Dados tirados: ',dado_point1,'e',dado_point2,'|','Soma: ',soma_point)
 
                     if soma == soma_point:
                         mao=mao+aposta
@@ -60,6 +60,28 @@ while running:
                         print('Jogue de novo')
                         
                 game = False
+    if jogador  == 'field':
+        game=True
+        while game:
+            dado1,dado2 = dados()
+            soma=dado1+dado2
+            print('Dados tirados: ',dado1,'e',dado2,'|','Soma: ',soma)
+            if soma == 3 or soma == 4 or soma == 9 or soma == 10 or soma == 11:
+                mao = mao + aposta
+                print ('vc ganhou')
+            if soma == 2:
+                mao = mao + aposta + 2(aposta)
+                print ('vc ganhou o dobro')
+            if soma == 12 :
+                mao = mao + aposta + 3(aposta)
+                print ('vc ganhou o triplo')
+            if soma == 5 or soma == 6 or soma == 7 or soma == 8:
+                mao = mao - mao 
+                print ('Voce perdeu tudo')
+                
+                game = False
+                
+                
 
     if jogador == 'sair':
         print(mao)
