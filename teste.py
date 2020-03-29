@@ -18,7 +18,7 @@ gf=float(input('valor'))
 
 print(gf)
 '''
-
+'''
 def dados():
     dado1=random.randint(1,6)
     dado2=random.randint(1,6)
@@ -29,3 +29,7 @@ print(sum(dados()))
 
 dado1,dado2=dados()
 print(dado1,dado2,dado1+dado2)
+'''
+f=float(input('oo:'))
+print(f)
+
