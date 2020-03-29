@@ -80,6 +80,20 @@ while running:
                 print ('Voce perdeu tudo')
                 
                 game = False
+
+    if jogador == 'any':
+        aposta = float(input('Qual o valor da aposta?: '))
+        dado_any1,dado_any2=dados()
+        soma_any = dado_any1+dado_any2
+        print('Dados tirados: ',dado_any1,dado_any2,'|','Soma: ',soma_any)
+        
+        if soma_any == 2 or soma_any==3 or soma_any==12:
+            mao=mao+aposta*7
+            print('Você ganhou')
+        
+        else:
+            mao=mao-aposta
+            print('Voce perdeu')
                 
                 
 
