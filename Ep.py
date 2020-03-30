@@ -37,14 +37,13 @@ while running:
 
             if soma == 7 or soma==11:
                 mao=mao+ aposta +10
-                print('Você ganhou')
-    
+                print('Você ganhou | Saldo atual: ',mao)
                 break
 
             if soma == 2 or soma==3 or soma==12: #craps
                 print('Deu craps')
                 mao=mao-aposta
-    
+                print('Saldo atual: ',mao)
                 game = False 
 
             else: #Point
@@ -61,12 +60,12 @@ while running:
 
                     if soma == soma_point:
                         mao=mao+aposta
-                        print("Você ganhou a fase Point")
+                        print("Você ganhou a fase Point  | Saldo atual: ",mao)
                         break
 
                     if soma_point >= 7:
                         mao=mao-aposta
-                        print('Você perdeu')
+                        print('Você perdeu | Saldo atual: ',mao)
                         point=False
 
                     else:
@@ -81,13 +80,13 @@ while running:
         
         if soma_field == 3 or soma_field == 4 or soma_field == 9 or soma_field == 10 or soma_field == 11:
                 mao = mao + aposta
-                print ('vc ganhou')
+                print ('vc ganhou | Saldo atual: ',mao)
         elif soma_field == 2:
                 mao = mao + aposta + 2*(aposta)
-                print ('vc ganhou o dobro')
+                print ('vc ganhou o dobro | Saldo atual: ',mao)
         elif soma_field == 12 :
                 mao = mao + aposta + 3*(aposta)
-                print ('vc ganhou o triplo')
+                print ('vc ganhou o triplo | Saldo atual: ',mao)
         elif soma_field == 5 or soma_field == 6 or soma_field == 7 or soma_field == 8:
                 mao = mao - mao 
                 print ('Voce perdeu tudo')
@@ -102,11 +101,11 @@ while running:
         
         if soma_any == 2 or soma_any==3 or soma_any==12:
             mao=mao+aposta*7
-            print('Você ganhou')
+            print('Você ganhou | Saldo atual: ',mao)
         
         else:
             mao=mao-aposta
-            print('Voce perdeu')
+            print('Voce perdeu | Saldo atual: ',mao)
     
     if jogador  == 'twelve':     
         aposta = gamble()
@@ -117,10 +116,10 @@ while running:
         
         if soma_twelve==12:
             mao = mao + 30*aposta
-            print('Vc ganho 30 vezes a sua aposta')
+            print('Vc ganho 30 vezes a sua aposta | Saldo atual: ',mao)
         else:
             mao=mao-aposta
-            print('Você perdeu')
+            print('Você perdeu | Saldo atual: ',mao)
 
     if jogador == 'sair':
         print(mao)
