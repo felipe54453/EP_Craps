@@ -70,10 +70,10 @@ while running:
                 mao = mao + aposta
                 print ('vc ganhou')
         elif soma_field == 2:
-                mao = mao + aposta + 2(aposta)
+                mao = mao + aposta + 2*(aposta)
                 print ('vc ganhou o dobro')
         elif soma_field == 12 :
-                mao = mao + aposta + 3(aposta)
+                mao = mao + aposta + 3*(aposta)
                 print ('vc ganhou o triplo')
         elif soma_field == 5 or soma_field == 6 or soma_field == 7 or soma_field == 8:
                 mao = mao - mao 
