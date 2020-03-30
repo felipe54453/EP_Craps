@@ -11,11 +11,24 @@ def dados():
 
     return dado_1,dado_2
 
+def gamble():   
+    condicao=True
+    while condicao:
+        aposta=float(input('Qual o valor da aposta?: '))
+    
+        if aposta <= 0 or aposta > mao:
+            print('Você não tem esse dinheiro')
+
+        else: 
+            condicao = False
+
+    return aposta
+
 while running:
     jogador = input("O que voce deseja fazer? pass/field/any/twelve/sair: ")
       
     if jogador == 'pass':
-        aposta = float(input('Qual o valor da aposta?: '))
+        aposta = gamble()
         game=True
         while game:
             dado1,dado2 = dados()
@@ -61,7 +74,7 @@ while running:
                         
                 game = False
     if jogador  == 'field':
-        aposta = float(input('Qual o valor da aposta?: '))
+        aposta = gamble()
         dado_field1,dado_field2 = dados()
         soma_field=dado_field1+dado_field2
         print('Dados tirados: ',dado_field1,'e',dado_field2,'|','Soma: ',soma_field)
@@ -82,7 +95,7 @@ while running:
                 
 
     if jogador == 'any':
-        aposta = float(input('Qual o valor da aposta?: '))
+        aposta = gamble()
         dado_any1,dado_any2=dados()
         soma_any = dado_any1+dado_any2
         print('Dados tirados: ',dado_any1,dado_any2,'|','Soma: ',soma_any)
@@ -95,9 +108,8 @@ while running:
             mao=mao-aposta
             print('Voce perdeu')
     
-    if jogador  == 'twelve':
-              
-        aposta = float(input('Qual o valor da aposta?: '))
+    if jogador  == 'twelve':     
+        aposta = gamble()
         dado_twelve1,dado_twelve2 = dados()
         soma_twelve=dado_twelve1+dado_twelve2
         print('Dados tirados: ',dado_twelve1,'e',dado_twelve2,'|','Soma: ',soma_twelve)
@@ -113,3 +125,7 @@ while running:
     if jogador == 'sair':
         print(mao)
         running=False
+        
+    if mao <= 0:
+        print('Você não tem mais dinheiro. GAME OVER!!')
+        running = False
