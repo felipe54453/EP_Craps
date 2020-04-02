@@ -11,24 +11,11 @@ def dados():
 
     return dado_1,dado_2
 
-def gamble():   
-    condicao=True
-    while condicao:
-        aposta=float(input('Qual o valor da aposta?: '))
-    
-        if aposta <= 0 or aposta > mao:
-            print('Você não tem esse dinheiro')
-
-        else: 
-            condicao = False
-
-    return aposta
-
 while running:
     jogador = input("O que voce deseja fazer? pass/field/any/twelve/sair: ")
       
     if jogador == 'pass':
-        aposta = gamble()
+        aposta = float(input('Qual o valor da aposta?: '))
         game=True
         while game:
             dado1,dado2 = dados()
@@ -37,13 +24,16 @@ while running:
 
             if soma == 7 or soma==11:
                 mao=mao+ aposta +10
-                print('Você ganhou | Saldo atual: ',mao)
+                print('Você ganhou')
+                print('Voce esta com',mao)
                 break
 
             if soma == 2 or soma==3 or soma==12: #craps
-                print('Deu craps')
                 mao=mao-aposta
-                print('Saldo atual: ',mao)
+                print('Deu craps')
+                print('Voce esta com',mao)
+                
+    
                 game = False 
 
             else: #Point
@@ -60,55 +50,64 @@ while running:
 
                     if soma == soma_point:
                         mao=mao+aposta
-                        print("Você ganhou a fase Point  | Saldo atual: ",mao)
+                        print("Você ganhou a fase Point")
+                        print('Voce esta com',mao)
                         break
 
                     if soma_point >= 7:
                         mao=mao-aposta
-                        print('Você perdeu | Saldo atual: ',mao)
+                        print('Você perdeu')
+                        print('Voce esta com',mao)
                         point=False
 
                     else:
                         print('Jogue de novo')
-                        
+                        print('Voce esta com',mao)
                 game = False
     if jogador  == 'field':
-        aposta = gamble()
+        aposta = float(input('Qual o valor da aposta?: '))
         dado_field1,dado_field2 = dados()
         soma_field=dado_field1+dado_field2
         print('Dados tirados: ',dado_field1,'e',dado_field2,'|','Soma: ',soma_field)
         
         if soma_field == 3 or soma_field == 4 or soma_field == 9 or soma_field == 10 or soma_field == 11:
                 mao = mao + aposta
-                print ('vc ganhou | Saldo atual: ',mao)
+                print ('vc ganhou')
+                print('Voce esta com',mao)
         elif soma_field == 2:
-                mao = mao + aposta + 2*(aposta)
-                print ('vc ganhou o dobro | Saldo atual: ',mao)
+                mao = mao + aposta + 2(aposta)
+                print ('vc ganhou o dobro')
+                print('Voce esta com',mao)
         elif soma_field == 12 :
-                mao = mao + aposta + 3*(aposta)
-                print ('vc ganhou o triplo | Saldo atual: ',mao)
+                mao = mao + aposta + 3(aposta)
+                print ('vc ganhou o triplo')
+                print('Voce esta com',mao)
         elif soma_field == 5 or soma_field == 6 or soma_field == 7 or soma_field == 8:
                 mao = mao - mao 
                 print ('Voce perdeu tudo')
+                print('Voce esta com',mao)
                 
                 
 
     if jogador == 'any':
-        aposta = gamble()
+        aposta = float(input('Qual o valor da aposta?: '))
         dado_any1,dado_any2=dados()
         soma_any = dado_any1+dado_any2
         print('Dados tirados: ',dado_any1,dado_any2,'|','Soma: ',soma_any)
         
         if soma_any == 2 or soma_any==3 or soma_any==12:
             mao=mao+aposta*7
-            print('Você ganhou | Saldo atual: ',mao)
+            print('Você ganhou')
+            print('Voce esta com',mao)
         
         else:
             mao=mao-aposta
-            print('Voce perdeu | Saldo atual: ',mao)
+            print('Voce perdeu')
+            print('Voce esta com',mao)
     
-    if jogador  == 'twelve':     
-        aposta = gamble()
+    if jogador  == 'twelve':
+              
+        aposta = float(input('Qual o valor da aposta?: '))
         dado_twelve1,dado_twelve2 = dados()
         soma_twelve=dado_twelve1+dado_twelve2
         print('Dados tirados: ',dado_twelve1,'e',dado_twelve2,'|','Soma: ',soma_twelve)
@@ -116,15 +115,13 @@ while running:
         
         if soma_twelve==12:
             mao = mao + 30*aposta
-            print('Vc ganho 30 vezes a sua aposta | Saldo atual: ',mao)
+            print('Vc ganho 30 vezes a sua aposta')
+            print('Voce esta com',mao)
         else:
             mao=mao-aposta
-            print('Você perdeu | Saldo atual: ',mao)
+            print('Você perdeu')
+            print('Voce esta com',mao)
 
     if jogador == 'sair':
-        print(mao)
+        print('Voce esta com',mao)
         running=False
-        
-    if mao <= 0:
-        print('Você não tem mais dinheiro. GAME OVER!!')
-        running = False
